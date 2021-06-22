@@ -1,4 +1,11 @@
 # LiverVesselSegmentationNetwork
+## 调用结构：
+preprocess_dcm2nii -> preprocess_nii2csv -> preprocess_csv2spacing ↘  
+            augmentation_illumination     ↘                          dataloaderV2_2  
+            augmentation_noise            ->     augment_functions ↗                  ↘  
+            augmentation_spacing          ↗  
+                                                                            loss_xxx   -> trainer  
+                                                                            model_xxx  ↗  
 ## 1. 预处理
 ### preprocess_dcm2nii.py将dcm文件转换为nii.gz文件。
 根据3DIrcadb数据集的标注
